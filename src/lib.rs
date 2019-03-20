@@ -244,6 +244,44 @@ impl Universe {
         }
 
         self.cells = next;
+
+    }
+
+    /// Import a file via a string
+    pub fn import_file(&mut self, file: &str) {
+        // Clear field
+        self.clear();
+
+        // Get width
+        let width = file.chars().position(|r| r == '\n').unwrap_or(101) - 1;
+        let size = (width * width) as usize;
+
+        self.cells = FixedBitSet::with_capacity(size);
+
+        if DEBUG {
+            log!("Width of map: {}\nSize: {}", width, size);
+            log!("Cells:\nLen: {}", self.cells.len());
+        }
+
+
+
+        self.set_height(width as u32);
+        self.set_width(width as u32);
+
+        let mut counter = 0;
+        for chr in file.chars().into_iter() {
+            // log!("{}", counter);
+            if chr == '#'{
+                self.cells.set(counter, true);
+                counter = counter + 1;
+            }
+            else if chr == '.' {
+                self.cells.set(counter, false);
+                counter = counter + 1;
+            }
+        }
+
+
     }
 
 }

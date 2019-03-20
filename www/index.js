@@ -3,8 +3,8 @@
  */
 
 // Import the WebAssembly memory at the top of the file.
-import { memory } from "wasm-game-of-life/wasm_game_of_life_bg";
-import { Universe } from "wasm-game-of-life";
+import { memory } from "conways/conways_bg";
+import { Universe } from "conways";
 
 const CELL_SIZE = 10; // px
 const GRID_COLOR = "#333333";
@@ -74,15 +74,48 @@ max of last 100 = ${Math.round(max)}
 const genCounter = document.getElementById("gen");
 genCounter.textContent = 0;
 
+// File map
+const mapUpload = document.getElementById("map");
+mapUpload.addEventListener('change', event => {
+  var files = event.target.files; // FileList object
+
+  // use the 1st file from the list
+  let f = files[0];
+
+  var reader = new FileReader();
+
+  // Closure to capture the file information.
+  reader.onload = ((file) => {
+    return function(e) {
+      pause();
+      universe.clear();
+
+      universe.import_file(e.target.result);
+
+      width = universe.width();
+      height = universe.height();
+      // setup canvas
+      canvas.height = (CELL_SIZE + 1) * height + 1;
+      canvas.width = (CELL_SIZE + 1) * width + 1;
+
+      play();
+      pause();
+      
+
+    };
+  })(f);
+
+  // Read in the image file as a data URL.
+  reader.readAsText(f);
+})
+
 // Size
 const sizeInput = document.getElementById("size");
-sizeInput.value = 1;
+sizeInput.value = 64;
 
 sizeInput.addEventListener("input", event => {
-  universe.clear();
-
+  pause();
   let newsize = sizeInput.value / 5 + 64;
-
 
   // Update canvas
   width = newsize;
@@ -97,6 +130,7 @@ sizeInput.addEventListener("input", event => {
   universe.set_width(newsize);
   universe.set_height(newsize);
 
+  universe.clear();
   play();
   genCounter.value = 0;
   pause();
