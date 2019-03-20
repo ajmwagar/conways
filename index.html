@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Conway's Game of Life</title>
+  </head>
+  <style>
+html {
+  font-family: 'Roboto Mono', monospace;
+  color: white;
+  background-color: #333;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex; /* or inline-flex */
+}
+
+h1 {
+  font-size: 5vh;
+}
+
+body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#fps, #gen {
+  white-space: pre;
+  font-family: monospace;
+}
+
+#input-bar, #stats {
+  padding: 1vh;
+}
+  </style>
+  <body>
+
+    <h1>Welcome to Conway's Game of Life.</h1>
+    <div class="container">
+    <div id="instructions">
+      <h2>Controls</h2>
+      <ul>
+        <li><b>Shift + Click</b>: Create a glider</li>
+        <!-- <li><b>Ctrl + Click</b>: Create a pulsar</li> -->
+        <li><b>Click</b>: Toggle cell</li>
+      </ul>
+    </div>
+
+    <div id="stats">
+      <h2>Stats</h2>
+      <pre>Generation: <p id="gen"></p></pre>
+      <div id="fps"></div>
+    </div>
+    </div>
+
+    <div id="input-bar">
+      <h2>Settings</h2>
+      <button id="play-pause"></button>
+      <button id="clear">Clear</button>
+      <button id="random">Random</button>
+      Size: <input id="size" type="range"></input>
+      Speed <input id="speed" type="range"></input>
+      Custom File: <input id="map" type="file"/ >
+    </div>
+
+    <canvas id="game-of-life-canvas"></canvas>
+
+
+    <script src="./bootstrap.js"></script>
+  </body>
+</html>
