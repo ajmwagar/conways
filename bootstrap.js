@@ -55,8 +55,14 @@
 /******/ 		"../pkg/conways_bg.wasm": function() {
 /******/ 			return {
 /******/ 				"./conways": {
+/******/ 					"__wbindgen_object_drop_ref": function(p0i32) {
+/******/ 						return installedModules["../pkg/conways.js"].exports["__wbindgen_object_drop_ref"](p0i32);
+/******/ 					},
 /******/ 					"__wbg_alert_4dedbfaabe00f448": function(p0i32,p1i32) {
 /******/ 						return installedModules["../pkg/conways.js"].exports["__wbg_alert_4dedbfaabe00f448"](p0i32,p1i32);
+/******/ 					},
+/******/ 					"__wbindgen_string_new": function(p0i32,p1i32) {
+/******/ 						return installedModules["../pkg/conways.js"].exports["__wbindgen_string_new"](p0i32,p1i32);
 /******/ 					},
 /******/ 					"__wbg_new_59cb74e423758ede": function() {
 /******/ 						return installedModules["../pkg/conways.js"].exports["__wbg_new_59cb74e423758ede"]();
@@ -67,8 +73,11 @@
 /******/ 					"__wbg_error_4bb6c2a97407129a": function(p0i32,p1i32) {
 /******/ 						return installedModules["../pkg/conways.js"].exports["__wbg_error_4bb6c2a97407129a"](p0i32,p1i32);
 /******/ 					},
-/******/ 					"__wbindgen_object_drop_ref": function(p0i32) {
-/******/ 						return installedModules["../pkg/conways.js"].exports["__wbindgen_object_drop_ref"](p0i32);
+/******/ 					"__widl_f_log_1_": function(p0i32) {
+/******/ 						return installedModules["../pkg/conways.js"].exports["__widl_f_log_1_"](p0i32);
+/******/ 					},
+/******/ 					"__wbg_floor_7a8426eadf48aa83": function(p0f64) {
+/******/ 						return installedModules["../pkg/conways.js"].exports["__wbg_floor_7a8426eadf48aa83"](p0f64);
 /******/ 					},
 /******/ 					"__wbg_random_5c6d19f78283f331": function() {
 /******/ 						return installedModules["../pkg/conways.js"].exports["__wbg_random_5c6d19f78283f331"]();
@@ -174,7 +183,7 @@
 /******/ 				promises.push(installedWasmModuleData);
 /******/ 			else {
 /******/ 				var importObject = wasmImportObjects[wasmModuleId]();
-/******/ 				var req = fetch(__webpack_require__.p + "" + {"../pkg/conways_bg.wasm":"b2e30a57dea6e1d2f410"}[wasmModuleId] + ".module.wasm");
+/******/ 				var req = fetch(__webpack_require__.p + "" + {"../pkg/conways_bg.wasm":"bf459d9768236238e3e4"}[wasmModuleId] + ".module.wasm");
 /******/ 				var promise;
 /******/ 				if(importObject instanceof Promise && typeof WebAssembly.compileStreaming === 'function') {
 /******/ 					promise = Promise.all([WebAssembly.compileStreaming(req), importObject]).then(function(items) {
