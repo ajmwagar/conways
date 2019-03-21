@@ -6,8 +6,8 @@ extern crate wasm_bindgen_test;
 use wasm_bindgen_test::*;
 
 
-extern crate wasm_game_of_life;
-use wasm_game_of_life::Universe;
+extern crate conways;
+use conways::Universe;
 
 #[cfg(test)]
 pub fn input_spaceship() -> Universe {

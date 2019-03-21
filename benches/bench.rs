@@ -1,11 +1,11 @@
 #![feature(test)]
 
 extern crate test;
-extern crate wasm_game_of_life;
+extern crate conways;
 
 #[bench]
 fn universe_ticks(b: &mut test::Bencher) {
-    let mut universe = wasm_game_of_life::Universe::new();
+    let mut universe = conways::Universe::new();
 
     b.iter(|| {
         universe.tick();
